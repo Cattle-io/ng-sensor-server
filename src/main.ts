@@ -3,17 +3,19 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
 
+  const app = await NestFactory.create(AppModule);
   const options = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Cattle io | API Explorer ')
+    .setDescription('Cattle.io is realtime iot platform for cattle sensors logging')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('cattle, iot, sensor, arduino, wifi, ch4')
     .build();
+
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('explorer', app, document);
 
   await app.listen(3000);
 }
+
 bootstrap();
