@@ -28,6 +28,18 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+TODO :
+
+1. swagger
+2. compodoc
+3. aws rds mysql
+4. REST CRUD 
+5. auth / signup / login / logout
+6. mqtt
+7. websockets
+8. admin dashboard ( CRUD USERS, blinking led )
+9. realtime data streaming to database [ timestamp, sensor[k] , units, UID, ]
+
 ## Installation
 
 ```bash
@@ -73,3 +85,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
   Nest is [MIT licensed](LICENSE).
+
+
+
+
