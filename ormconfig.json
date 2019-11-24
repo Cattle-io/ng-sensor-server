@@ -1,0 +1,19 @@
+{
+    "type": "mysql",
+    "host": "cattle-db.cgllnmrswrfs.us-west-2.rds.amazonaws.com",
+    "port": 3306,
+    "username": "admin",
+    "password": "GZIIM#Rj*I2#sprRWc",
+    "database": "cattleio_core",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+       "src/entity/**/*.ts"
+    ],
+    "migrations": [
+       "src/migration/**/*.ts"
+    ],
+    "subscribers": [
+       "src/subscriber/**/*.ts"
+    ]
+ }

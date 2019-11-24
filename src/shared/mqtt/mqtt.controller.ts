@@ -1,0 +1,22 @@
+import { Controller, Get, Inject } from '@nestjs/common';
+import { ClientProxy, MessagePattern } from '@nestjs/microservices';
+import { Observable } from 'rxjs';
+import { MQTT_SERVICE } from './mqtt.constant';
+
+@Controller()
+export class MQTTController {
+  constructor(@Inject(MQTT_SERVICE) private readonly client: ClientProxy) {}
+
+  @Get()
+  execute(): Observable<number> {
+    const pattern = { cmd: 'sum' };
+    const data = [1, 2, 3, 4, 5];
+    return this.client.send<number>(pattern, data);
+  }
+
+  @MessagePattern({ cmd: 'sum' })
+  sum(data: number[]): number {
+    console.log(' mqtt ===> ' + data);
+    return (data || []).reduce((a, b) => a + b);
+  }
+}
