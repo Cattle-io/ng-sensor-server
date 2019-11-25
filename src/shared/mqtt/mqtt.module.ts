@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule } from '@nestjs/microservices';
-import { Transport } from '@nestjs/microservices';
+import { MQTTService } from './mqtt.service';
+import { PacketsSocketsModule } from 'src/shared/sockets/packets-sockets/packets-sockets.module';
 
-import { MQTT_SERVICE } from './mqtt.constant';
-import { MQTTController } from './mqtt.controller';
 
 @Module({
-  imports: [ClientsModule.register([{ name: MQTTController, transport: Transport.MQTT } as any])],
+  imports: [PacketsSocketsModule ],
   controllers: [],
-  providers: [],
-  exports: []
+  providers: [MQTTService],
+  exports: [MQTTService]
 })
 export class MQTTModule {}

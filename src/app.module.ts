@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 
 import { DatabaseModule } from './database/database.module';
 import { SocketsModule } from './shared/sockets/sockets.module';
+import { MQTTModule } from './shared/mqtt/mqtt.module';
 
 import { UsersModule } from './core/users/users.module';
 import { DevicesModule } from './core/devices/devices.module';
@@ -13,7 +14,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [DatabaseModule, SocketsModule, UsersModule, DevicesModule, ProjectsModule, AuthModule],
+  imports: [DatabaseModule, MQTTModule, SocketsModule, UsersModule, DevicesModule, ProjectsModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -11,12 +11,22 @@ import { PacketModel } from 'src/core/packets/packet.model';
 export class PacketServices {
   constructor(
     @InjectRepository(PacketEntity)
-    private readonly PacketRP: Repository<PacketEntity>
+    private readonly PacketRP: Repository<PacketEntity>,
   ) {}
 
 
   public async savePacket(Packet: PacketModel) {
-    await this.PacketRP.insert(Packet);
+    try{
+      await this.PacketRP.insert(Packet);
+    }catch(error){
+      console.log(' ')
+      console.log(' ')
+      console.log(' ... ')
+      console.log(' ... error ' + JSON.stringify(error))
+      console.log(' ... ')
+      console.log(' ')
+      console.log(' ')
+    }
     return Packet;
   }
 

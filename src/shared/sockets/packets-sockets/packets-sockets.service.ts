@@ -21,7 +21,7 @@ export class PacketsSocketsService {
         sensorIMUheading: packet.imu.heading,
         sensorIMUaltitude: packet.imu.altitude,
         sensorCH4: packet.ch4,
-        sensorAirFow: packet.airFlow,
+        sensorAirFlow: packet.airFlow,
         sensorBattery: packet.batteryLevel,
         sensorTimestamp: packet.timestamp,
         createdBy: 'Jorge Luis Mayorga',

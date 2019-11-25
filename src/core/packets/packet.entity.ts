@@ -3,10 +3,10 @@ import { Entity, Column, BeforeInsert, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('packets')
 export class PacketEntity {
 
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ })
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   uid: string;
 
   @Column({ name: 'sensor_temperature' })

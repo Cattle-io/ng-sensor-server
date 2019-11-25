@@ -1,10 +1,12 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Logger } from '@nestjs/common';
 import { ClientProxy, MessagePattern } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
 import { MQTT_SERVICE } from './mqtt.constant';
 
 @Controller()
 export class MQTTController {
+
+  private logger: Logger = new Logger('MQTTGateway');
   constructor(@Inject(MQTT_SERVICE) private readonly client: ClientProxy) {}
 
   @Get()
@@ -14,9 +16,8 @@ export class MQTTController {
     return this.client.send<number>(pattern, data);
   }
 
-  @MessagePattern({ cmd: 'sum' })
-  sum(data: number[]): number {
-    console.log(' mqtt ===> ' + data);
-    return (data || []).reduce((a, b) => a + b);
+  @MessagePattern('cattleio/packets')
+  root(): void {
+    this.logger.warn('cattleio/packets mqtt message');
   }
 }

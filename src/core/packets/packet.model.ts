@@ -16,7 +16,7 @@ export interface PacketModel {
 
   sensorCH4: string;
 
-  sensorAirFow: string;
+  sensorAirFlow: string;
   sensorBattery: string;
   sensorTimestamp: string;
 
